@@ -294,12 +294,12 @@ void UpdateControls()
 		SmartPointer<GameObject> temp = ReturnFirstDisabled(projectileList);
 		if (temp)
 		{
-			temp->UpdateVelocity(player->GetVelocity());
+			temp->ResetRigidBody();
+			temp->UpdatePosition(player->GetPosition());
+			temp->SetState(true);
 
 			float xForce = 0.0f;
 			float yForce = 0.0f;
-
-			temp->UpdatePosition(player->GetPosition());
 
 			if (inputManager.a)
 			{
@@ -321,7 +321,6 @@ void UpdateControls()
 				yForce = -600;
 			}
 
-			temp->SetState(true);
 			Physics::ApplyForce(temp, Point2D(xForce, yForce));
 		}
 	}

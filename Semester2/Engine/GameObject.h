@@ -55,6 +55,12 @@ public:
 
 	void SetSprite(GLib::Sprites::Sprite* i_sprite);
 
+	void ResetRigidBody()
+	{
+		m_Velocity = Point2D(0.0f, 0.0f);
+		m_Acceleration = Point2D(0.0f, 0.0f);
+	}
+
 private:
 	Point2D	m_Position;
 	Point2D m_Velocity;
